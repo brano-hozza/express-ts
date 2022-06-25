@@ -10,7 +10,6 @@ export class ProductController implements Controller {
   }
 
   initializeRoutes(app: Router) {
-    console.log(this);
     /**
      * Get all products
      * @method get
@@ -51,7 +50,6 @@ export class ProductController implements Controller {
   }
 
   getAllProducts(req: Request, res: Response) {
-    console.log(this.dbService);
     return res.json(this.dbService.getAll());
   }
 
@@ -77,6 +75,8 @@ export class ProductController implements Controller {
     } catch (err) {
       if (err.name === 'EXISTS') {
         return res.status(409).send('Product with that name already exists');
+      } else {
+        return res.status(500).send(err);
       }
     }
   }
@@ -90,6 +90,8 @@ export class ProductController implements Controller {
     } catch (err) {
       if (err.name === 'NO_PRODUCT') {
         return res.status(404).send("This product doesn't exists");
+      } else {
+        return res.status(500).send(err);
       }
     }
   }
@@ -102,6 +104,8 @@ export class ProductController implements Controller {
     } catch (err) {
       if (err.name === 'NO_PRODUCT') {
         return res.status(404).send("This product doesn't exists");
+      } else {
+        return res.status(500).send(err);
       }
     }
   }
