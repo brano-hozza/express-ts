@@ -1,5 +1,9 @@
+import { Service } from '@/interfaces/service';
+import { Product, ProductDto } from '@/types/product';
+
 export class DbService implements Service {
   private db: Product[] = [];
+  name = 'db_service';
 
   addProduct(product: ProductDto) {
     if (this.db.find(pr => pr.name === product.name)) {
@@ -24,7 +28,7 @@ export class DbService implements Service {
   }
 
   updateProduct(id: number, productData: ProductDto) {
-    let product = this.db.find(pr => pr.id === id);
+    const product = this.db.find(pr => pr.id === id);
     if (!product) {
       throw Error('NO_PRODUCT');
     }

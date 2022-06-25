@@ -1,1 +1,3 @@
-interface Controller {}
+export interface Controller {
+  name: string;
+}

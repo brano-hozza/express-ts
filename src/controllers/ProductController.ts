@@ -1,7 +1,10 @@
+import { Controller } from '@/interfaces/controller';
 import { DbService } from '@/services/DbService';
+import { ProductDto } from '@/types/product';
 import { Request, Response } from 'express';
 
 export class ProductController implements Controller {
+  name = 'product_controller';
   private dbService = new DbService();
 
   getAllProducts(req: Request, res: Response) {
