@@ -28,7 +28,7 @@ export class ProductRouter {
     app.delete('/product/:id', this.productController.removeProduct.bind(this.productController));
 
     /**
-     * Delete single product
+     * Delete all products
      * @method delete
      */
     app.delete('/products', this.productController.removeAllProducts.bind(this.productController));
