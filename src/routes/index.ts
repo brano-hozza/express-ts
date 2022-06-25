@@ -28,6 +28,12 @@ export class ProductRouter {
     app.delete('/product/:id', this.productController.removeProduct.bind(this.productController));
 
     /**
+     * Delete single product
+     * @method delete
+     */
+    app.delete('/products', this.productController.removeAllProducts.bind(this.productController));
+
+    /**
      * Create product
      * @method post
      * @param {string} name -> unique product name

@@ -67,4 +67,9 @@ export class ProductController implements Controller {
       }
     }
   }
+  //remove all products
+  removeAllProducts(req: Request, res: Response) {
+    this.dbService.clearDb();
+    return res.send('All products successfully deleted');
+  }
 }

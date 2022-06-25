@@ -5,6 +5,10 @@ export class DbService implements Service {
   private db: Product[] = [];
   name = 'db_service';
 
+  clearDb() {
+    this.db = [];
+  }
+
   addProduct(product: ProductDto) {
     if (this.db.find(pr => pr.name === product.name)) {
       throw Error('EXISTS');
