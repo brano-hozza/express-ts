@@ -1,53 +1,8 @@
 import { DbService } from '@/services/DbService';
-import { Request, Response, Router } from 'express';
+import { Request, Response } from 'express';
 
 export class ProductController implements Controller {
-  private dbService: DbService;
-
-  constructor(app: Router) {
-    this.dbService = new DbService();
-    this.initializeRoutes(app);
-  }
-
-  initializeRoutes(app: Router) {
-    /**
-     * Get all products
-     * @method get
-     */
-    app.get('/products', this.getAllProducts.bind(this));
-
-    /**
-     * Get single product
-     * @method get
-     * @param {number} id -> id of product
-     */
-    app.get('/product/:id', this.getSingleProduct.bind(this));
-
-    /**
-     * Delete single product
-     * @method delete
-     * @param {number} id -> id of product
-     */
-    app.delete('/product/:id', this.removeProduct.bind(this));
-
-    /**
-     * Create product
-     * @method post
-     * @param {string} name -> unique product name
-     * @param {string} description -> product description
-     * @param {string} img -> URL for product image
-     */
-    app.post('/product', this.registerProduct.bind(this));
-
-    /**
-     * Update product
-     * @method put
-     * @param {string} name -> unique product name
-     * @param {string} description -> product description
-     * @param {string} img -> URL for product image
-     */
-    app.put('/product/:id', this.updateProduct.bind(this));
-  }
+  private dbService = new DbService();
 
   getAllProducts(req: Request, res: Response) {
     return res.json(this.dbService.getAll());
