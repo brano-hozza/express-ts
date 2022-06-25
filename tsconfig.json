@@ -1,17 +1,26 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "target": "es6",
-    "noImplicitAny": true,
+    "typeRoots": ["node_modules/@types"],
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
+    "module": "commonjs",
+    "pretty": true,
     "sourceMap": true,
+    "declaration": true,
     "outDir": "dist",
-    "baseUrl": ".",
+    "allowJs": true,
+    "noEmit": false,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "importHelpers": true,
+    "baseUrl": "src",
     "paths": {
-      "*": ["node_modules/*"],
-      "@/*": ["src/*"]
+      "@/*": ["*"]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*.ts", "src/**/*.json", ".env"],
+  "exclude": ["node_modules", "src/http", "src/logs", "src/tests"]
 }
